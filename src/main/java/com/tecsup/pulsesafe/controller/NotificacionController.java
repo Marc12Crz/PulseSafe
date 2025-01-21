@@ -1,0 +1,30 @@
+package com.tecsup.pulsesafe.controller;
+
+import com.tecsup.pulsesafe.model.Notificacion;
+import com.tecsup.pulsesafe.service.NotificacionService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/notificaciones")
+public class NotificacionController {
+    private final NotificacionService notificacionService;
+
+    public NotificacionController(NotificacionService notificacionService) {
+        this.notificacionService = notificacionService;
+    }
+
+    @PostMapping
+    public ResponseEntity<Notificacion> crearNotificacion(@RequestBody Notificacion notificacion) {
+        Notificacion nuevaNotificacion = notificacionService.crearNotificacion(notificacion);
+        return ResponseEntity.ok(nuevaNotificacion);
+    }
+
+    @GetMapping("/usuario/{idUsuario}")
+    public ResponseEntity<List<Notificacion>> obtenerNotificacionesPorUsuario(@PathVariable Long idUsuario) {
+        List<Notificacion> notificaciones = notificacionService.obtenerNotificacionesPorUsuario(idUsuario);
+        return ResponseEntity.ok(notificaciones);
+    }
+}
