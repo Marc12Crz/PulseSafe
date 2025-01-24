@@ -5,12 +5,12 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "usuarios") // Respetamos el nombre de la tabla
+@Table(name = "usuarios")
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario") // Respetamos el nombre de la columna
+    @Column(name = "id_usuario")
     private Long idUsuario;
 
     @Column(name = "nombre", nullable = false)

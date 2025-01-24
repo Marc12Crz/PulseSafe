@@ -43,7 +43,7 @@ public class UsuarioController {
     public ResponseEntity<?> login(@RequestBody Usuario credenciales) {
         Usuario usuario = usuarioService.autenticarUsuario(credenciales.getEmail(), credenciales.getPassword());
         if (usuario != null) {
-            return ResponseEntity.ok(usuario); // Devuelve el usuario si el login es exitoso
+            return ResponseEntity.ok(usuario);
         } else {
             return ResponseEntity.status(401).body("Credenciales incorrectas");
         }
