@@ -9,7 +9,6 @@ import java.util.List;
 @Repository
 public interface FrecuenciaCardiacaRepository extends JpaRepository<FrecuenciaCardiaca, Long> {
 
-    // Por ejemplo, para obtener todas las mediciones de un usuario específico
     List<FrecuenciaCardiaca> findByUsuarioIdUsuario(Long idUsuario);
 
 }

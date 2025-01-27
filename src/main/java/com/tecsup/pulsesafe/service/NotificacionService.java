@@ -1,9 +1,7 @@
 package com.tecsup.pulsesafe.service;
-
 import com.tecsup.pulsesafe.model.Notificacion;
 import com.tecsup.pulsesafe.repository.NotificacionRepository;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -21,13 +19,9 @@ public class NotificacionService {
      * Se asume que el objeto Notificacion ya contiene el usuario y los datos básicos.
      */
     public Notificacion crearNotificacionAlerta(Notificacion notificacion) {
-        // Opcional: ajusta campos si necesitas valores por defecto
         if (notificacion.getTimestamp() == null) {
             notificacion.setTimestamp(LocalDateTime.now());
         }
-        // Si quieres asegurar estado de envío por defecto
-        // notificacion.setEstadoEnvio(true);
-
         return notificacionRepository.save(notificacion);
     }
 

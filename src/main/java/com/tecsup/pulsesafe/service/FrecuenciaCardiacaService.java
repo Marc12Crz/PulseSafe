@@ -39,13 +39,11 @@ public class FrecuenciaCardiacaService {
     }
 
     private void crearNotificacion(Usuario usuario, String tipoAlerta, String mensaje) {
-        // 1. Crear una instancia de Notificacion
         Notificacion noti = new Notificacion();
         noti.setUsuario(usuario);
         noti.setTipoAlerta(tipoAlerta);
         noti.setMensaje(mensaje);
 
-        // 2. Llama al método del servicio que recibe Notificacion
         notificacionService.crearNotificacionAlerta(noti);
     }
 

@@ -26,11 +26,12 @@ public class UsuarioService {
     public Usuario buscarPorEmail(String email) {
         return usuarioRepository.findByEmail(email);
     }
+
     public Usuario autenticarUsuario(String email, String password) {
         Usuario usuario = usuarioRepository.findByEmail(email);
         if (usuario != null && usuario.getPassword().equals(password)) {
-            return usuario; // Login exitoso
+            return usuario;
         }
-        return null; // Credenciales incorrectas
+        return null;
     }
 }
